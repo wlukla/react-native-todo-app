@@ -1,21 +1,37 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, Button, StyleSheet } from 'react-native';
 
-const TodoItem = ({ title }) => {
+const TodoItem = ({ todo, handleLongPress, onDelete }) => {
   return (
-    <View style={styles.container}>
-      <Text>{title}</Text>
-    </View>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={0.5}
+      onLongPress={handleLongPress}
+    >
+      <Text>{todo.title}</Text>
+      <Button
+        style={styles.button}
+        title="-"
+        onPress={onDelete.bind(null, todo.id)}
+        color="red"
+      />
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: 14,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
     marginBottom: 10,
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: '#cccccc',
+  },
+  button: {
+    backgroundColor: 'green',
   },
 });
 

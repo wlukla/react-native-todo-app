@@ -1,45 +1,43 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import 'react-native-gesture-handler';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Header from './components/Header';
-import AddTodo from './components/AddTodo';
-import TodoItem from './components/TodoItem';
+import TabBar from './components/TabBar';
+
+import TodosScreen from './screens/TodosScreen';
+import ArchiveScreen from './screens/ArchiveScreen';
+
+const Tab = createBottomTabNavigator();
 
 const App = () => {
-  const [todos, setTodos] = useState([]);
-
-  const addTodo = (title) => {
-    setTodos((prevTodos) => [
-      {
-        id: Date.now().toString(),
-        title,
-      },
-      ...prevTodos,
-    ]);
-  };
-
   return (
-    <View style={styles.container}>
-      <Header />
-      <View style={styles.main}>
-        <AddTodo addTodo={addTodo} />
-        <FlatList
-          data={todos}
-          renderItem={({ item }) => <TodoItem title={item.title} />}
-          keyExtractor={({ id }) => id}
-        />
-      </View>
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator tabBar={(props) => <TabBar {...props} />}>
+        <Tab.Screen name="Todos" component={TodosScreen} />
+        <Tab.Screen name="Archive" component={ArchiveScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fafafa',
+  tabNavigation: {
+    backgroundColor: '#5c9cf5',
   },
-  main: {
-    padding: 10,
+  navigationContainer: {
+    flexDirection: 'row',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    backgroundColor: '#5c9cf5',
+  },
+  navigationButton: {
+    height: 50,
+    width: '50%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

@@ -5,12 +5,19 @@ const AddTodo = ({ addTodo }) => {
   const [title, setTitle] = useState('');
 
   const handlePress = (title) => {
-    addTodo(title);
+    if (title.trim()) {
+      setTitle('');
+      addTodo(title);
+    }
   };
 
   return (
     <View style={styles.container}>
-      <TextInput style={styles.textInput} onChangeText={setTitle} />
+      <TextInput
+        style={styles.textInput}
+        onChangeText={setTitle}
+        value={title}
+      />
       <Button title="+" onPress={handlePress.bind(null, title)} />
     </View>
   );
