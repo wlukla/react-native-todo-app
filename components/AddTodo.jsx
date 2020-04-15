@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Button, TextInput, StyleSheet } from 'react-native';
+import { Button } from 'react-native';
+import styled from 'styled-components/native';
 
 const AddTodo = ({ addTodo }) => {
   const [title, setTitle] = useState('');
@@ -12,29 +13,24 @@ const AddTodo = ({ addTodo }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.textInput}
-        onChangeText={setTitle}
-        value={title}
-      />
+    <Container>
+      <Input onChangeText={setTitle} value={title} />
       <Button title="+" onPress={handlePress.bind(null, title)} />
-    </View>
+    </Container>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  textInput: {
-    width: '70%',
-    borderColor: '#5c9cf5',
-    borderStyle: 'solid',
-    borderBottomWidth: 2,
-  },
-});
+const Container = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Input = styled.TextInput`
+  width: 70%;
+  border-color: #5c9cf5;
+  border-style: solid;
+  border-bottom-width: 2px;
+`;
 
 export default AddTodo;

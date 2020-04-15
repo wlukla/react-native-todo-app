@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
+import styled from 'styled-components/native';
 
 import Header from '../components/Header';
 import AddTodo from '../components/AddTodo';
@@ -23,9 +24,9 @@ const TodosScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <Container>
       <Header />
-      <View style={styles.main}>
+      <Main>
         <AddTodo addTodo={addTodo} />
         <FlatList
           data={todos}
@@ -34,19 +35,18 @@ const TodosScreen = ({ navigation }) => {
           )}
           keyExtractor={({ id }) => id}
         />
-      </View>
-    </View>
+      </Main>
+    </Container>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fafafa',
-  },
-  main: {
-    padding: 10,
-  },
-});
+const Container = styled.View`
+  flex: 1;
+  background-color: #fafafa;
+`;
+
+const Main = styled.View`
+  padding: 10px;
+`;
 
 export default TodosScreen;

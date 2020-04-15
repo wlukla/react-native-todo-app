@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -21,24 +20,5 @@ const App = () => {
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  tabNavigation: {
-    backgroundColor: '#5c9cf5',
-  },
-  navigationContainer: {
-    flexDirection: 'row',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    backgroundColor: '#5c9cf5',
-  },
-  navigationButton: {
-    height: 50,
-    width: '50%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export default App;

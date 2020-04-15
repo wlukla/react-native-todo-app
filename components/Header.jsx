@@ -1,28 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
 
 const Header = () => {
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.text}>Todo App</Text>
-      </View>
-    </View>
+    <HeaderContainer>
+      <Title>Todo App</Title>
+    </HeaderContainer>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#5c9cf5',
-    height: 70,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    padding: 10,
-  },
-});
+const HeaderContainer = styled.View`
+  background-color: #5c9cf5;
+  height: 70px;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const Title = styled.Text`
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+`;
 
 export default Header;

@@ -1,9 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, Text, Button, StyleSheet } from 'react-native';
+import { Text, Button } from 'react-native';
+import styled from 'styled-components/native';
 
 const TodoItem = ({ todo, handleLongPress, onDelete }) => {
   return (
-    <TouchableOpacity
+    <TodoContainer
       style={styles.container}
       activeOpacity={0.5}
       onLongPress={handleLongPress}
@@ -15,24 +16,19 @@ const TodoItem = ({ todo, handleLongPress, onDelete }) => {
         onPress={onDelete.bind(null, todo.id)}
         color="red"
       />
-    </TouchableOpacity>
+    </TodoContainer>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 10,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: '#cccccc',
-  },
-  button: {
-    backgroundColor: 'green',
-  },
-});
+const TodoContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cccccc;
+`;
 
 export default TodoItem;

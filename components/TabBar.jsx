@@ -1,9 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
+import { Text } from 'react-native';
+import styled from 'styled-components/native';
 
 const TabBar = ({ state, descriptors, navigation }) => {
   return (
-    <View style={styles.navigationContainer}>
+    <NavContainer>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label = route.name;
@@ -30,37 +31,35 @@ const TabBar = ({ state, descriptors, navigation }) => {
         };
 
         return (
-          <TouchableOpacity
+          <NavButton
             accessibilityRole="button"
             accessibilityStates={isFocused ? ['selected'] : []}
             accessibilityLabel={options.tabBarAccessibilityLabel}
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={styles.navigationButton}
           >
             <Text style={{ color: isFocused ? 'white' : '#222' }}>{label}</Text>
-          </TouchableOpacity>
+          </NavButton>
         );
       })}
-    </View>
+    </NavContainer>
   );
 };
 
-const styles = StyleSheet.create({
-  navigationContainer: {
-    flexDirection: 'row',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    backgroundColor: '#5c9cf5',
-  },
-  navigationButton: {
-    height: 50,
-    width: '50%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+const NavContainer = styled.View`
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #5c9cf5;
+`;
+
+const NavButton = styled.TouchableOpacity`
+  height: 50px;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default TabBar;
