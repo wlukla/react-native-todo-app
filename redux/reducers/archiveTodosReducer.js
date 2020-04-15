@@ -1,5 +1,3 @@
-import Todo from '../../models/Todo';
-
 const initialState = {
   todosList: [],
 };

@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import Header from '../components/Header';
 import TodoList from '../components/TodoList';
 
-const ArchiveScreen = ({ todos }) => {
+const ArchiveScreen = ({ todos, navigation }) => {
   return (
     <Container>
       <Header />
       <Main>
-        <TodoList todos={todos} isActive />
+        <TodoList todos={todos} isActive navigation={navigation} />
       </Main>
     </Container>
   );

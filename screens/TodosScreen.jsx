@@ -6,13 +6,13 @@ import Header from '../components/Header';
 import TodoList from '../components/TodoList';
 import AddTodo from '../components/AddTodo';
 
-const TodosScreen = ({ todos }) => {
+const TodosScreen = ({ todos, navigation }) => {
   return (
     <Container>
       <Header />
       <Main>
         <AddTodo />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} navigation={navigation} />
       </Main>
     </Container>
   );
