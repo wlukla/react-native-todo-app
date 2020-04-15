@@ -16,6 +16,13 @@ const archiveTodosReducer = (state = initialState, action) => {
           (todo) => todo.id !== action.payload.id,
         ),
       };
+    case 'PUT_TODO_IN_ARCHIVE':
+      return {
+        ...state,
+        todosList: state.todosList.map((todo) =>
+          todo.id === action.payload.id ? action.payload : todo,
+        ),
+      };
     default:
       return state;
   }

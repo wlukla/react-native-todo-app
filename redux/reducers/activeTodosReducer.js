@@ -5,6 +5,7 @@ const initialState = {
 };
 
 const activeTodosReducer = (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
     case 'PUSH_TODO_TO_ACTIVE':
       return {
@@ -16,6 +17,13 @@ const activeTodosReducer = (state = initialState, action) => {
         ...state,
         todosList: state.todosList.filter(
           (todo) => todo.id !== action.payload.id,
+        ),
+      };
+    case 'PUT_TODO_IN_ACTIVE':
+      return {
+        ...state,
+        todosList: state.todosList.map((todo) =>
+          todo.id === action.payload.id ? action.payload : todo,
         ),
       };
     default:

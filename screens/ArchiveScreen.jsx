@@ -8,7 +8,7 @@ const ArchiveScreen = ({ todos, navigation }) => {
   return (
     <Container>
       <Main>
-        <TodoList todos={todos} isActive navigation={navigation} />
+        <TodoList todos={todos} navigation={navigation} />
       </Main>
     </Container>
   );

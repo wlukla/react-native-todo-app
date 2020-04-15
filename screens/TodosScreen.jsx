@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { connect } from 'react-redux';
 
-import Header from '../components/Header';
 import TodoList from '../components/TodoList';
 import AddTodo from '../components/AddTodo';
 
@@ -11,7 +10,7 @@ const TodosScreen = ({ todos, navigation }) => {
     <Container>
       <Main>
         <AddTodo />
-        <TodoList todos={todos} navigation={navigation} />
+        <TodoList todos={todos} navigation={navigation} isActive />
       </Main>
     </Container>
   );

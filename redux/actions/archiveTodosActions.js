@@ -7,3 +7,8 @@ export const removeTodoFromArchive = (todo) => ({
   type: 'REMOVE_TODO_FROM_ARCHIVE',
   payload: todo,
 });
+
+export const putTodoInArchive = (todo) => ({
+  type: 'PUT_TODO_IN_ARCHIVE',
+  payload: todo,
+});

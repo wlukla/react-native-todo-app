@@ -13,13 +13,13 @@ const TodoItem = ({
   navigation,
 }) => {
   const handleDelete = () => {
-    isActive ? deleteTodoFromArchive(todo) : deleteTodoFromActive(todo);
+    isActive ? deleteTodoFromActive(todo) : deleteTodoFromArchive(todo);
   };
 
   return (
     <TodoContainer
       activeOpacity={0.5}
-      onPress={() => navigation.navigate('Todo')}
+      onPress={() => navigation.navigate('Todo', { todo, isActive })}
     >
       <Text>{todo.title}</Text>
       <Button title="-" onPress={handleDelete} color="red" />
