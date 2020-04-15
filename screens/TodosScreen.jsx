@@ -9,7 +9,6 @@ import AddTodo from '../components/AddTodo';
 const TodosScreen = ({ todos, navigation }) => {
   return (
     <Container>
-      <Header />
       <Main>
         <AddTodo />
         <TodoList todos={todos} navigation={navigation} />

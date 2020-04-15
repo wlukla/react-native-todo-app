@@ -9,7 +9,6 @@ import TabBar from './components/TabBar';
 import TodosScreen from './screens/TodosScreen';
 import ArchiveScreen from './screens/ArchiveScreen';
 import TodoScreen from './screens/TodoScreen';
-import { StackActions } from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
@@ -17,11 +16,7 @@ const Tab = createBottomTabNavigator();
 
 const TodosTabNavigation = () => (
   <Stack.Navigator tabBar={(props) => <TabBar {...props} />}>
-    <Stack.Screen
-      name="Home"
-      component={TodosScreen}
-      options={{ headerShown: false }}
-    />
+    <Stack.Screen name="Home" component={TodosScreen} options={headerStyles} />
     <Stack.Screen name="Todo" component={TodoScreen} />
   </Stack.Navigator>
 );
@@ -31,7 +26,7 @@ const ArchiveTabNavigation = () => (
     <Stack.Screen
       name="Archive"
       component={ArchiveScreen}
-      options={{ headerShown: false }}
+      options={headerStyles}
     />
     <Stack.Screen name="Todo" component={TodoScreen} />
   </Stack.Navigator>
@@ -45,5 +40,14 @@ const MainNavigation = () => (
     </Tab.Navigator>
   </NavigationContainer>
 );
+
+const headerStyles = {
+  headerStyle: {
+    backgroundColor: '#5c9cf5',
+  },
+  headerTitleStyle: {
+    fontWeight: 'bold',
+  },
+};
 
 export default MainNavigation;
