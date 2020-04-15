@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button } from 'react-native';
 import styled from 'styled-components/native';
 
-import { addTodoToActive } from '../redux/actions/activeTodosActions';
+import { addTodoToActive } from '../redux/actions';
 
 const AddTodo = ({ addTodo }) => {
   const [title, setTitle] = useState('');

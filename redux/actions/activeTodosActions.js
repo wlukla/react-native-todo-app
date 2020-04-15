@@ -1,9 +1,9 @@
-export const addTodoToActive = (todo) => ({
-  type: 'ADD_TODO_TO_ACTIVE',
+export const pushTodoToActive = (todo) => ({
+  type: 'PUSH_TODO_TO_ACTIVE',
   payload: todo,
 });
 
-export const deleteTodoFromActive = (todo) => ({
-  type: 'DELETE_TODO_FROM_ACTIVE',
+export const removeTodoFromActive = (todo) => ({
+  type: 'REMOVE_TODO_FROM_ACTIVE',
   payload: todo,
 });

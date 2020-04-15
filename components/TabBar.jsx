@@ -38,6 +38,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
+            key={label}
           >
             <NavButtonText isFocused={isFocused}>{label}</NavButtonText>
           </NavButton>

@@ -6,12 +6,12 @@ const initialState = {
 
 const archiveTodosReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_TODO_TO_ARCHIVE':
+    case 'PUSH_TODO_TO_ARCHIVE':
       return {
         ...state,
-        todosList: state.todosList.concat(new Todo(action.payload)),
+        todosList: [new Todo(action.payload), ...state.todosList],
       };
-    case 'DELETE_TODO_FROM_ACTIVE':
+    case 'REMOVE_TODO_FROM_ACTIVE':
       return {
         ...state,
         todosList: state.todosList.filter(

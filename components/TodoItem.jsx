@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Text, Button } from 'react-native';
 import styled from 'styled-components/native';
 
-import { deleteTodoFromActive } from '../redux/actions/activeTodosActions';
+import { deleteTodoFromActive } from '../redux/actions';
 
 const TodoItem = ({ todo, deleteTodo }) => {
   return (
