@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 
 import Header from '../components/Header';
 
-const ArchiveScreen = ({ navigation }) => {
+const ArchiveScreen = () => {
   return (
     <Container>
       <Header />

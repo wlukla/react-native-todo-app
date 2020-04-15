@@ -1,17 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Text, Button } from 'react-native';
 import styled from 'styled-components/native';
 
-const TodoItem = ({ todo, handleLongPress, onDelete }) => {
+import { deleteTodoFromActive } from '../redux/actions/activeTodosActions';
+
+const TodoItem = ({ todo, deleteTodo }) => {
   return (
-    <TodoContainer activeOpacity={0.5} onLongPress={handleLongPress}>
+    <TodoContainer activeOpacity={0.5}>
       <Text>{todo.title}</Text>
-      <Button title="-" onPress={onDelete.bind(null, todo.id)} color="red" />
+      <Button title="-" onPress={deleteTodo.bind(null, todo)} color="red" />
     </TodoContainer>
   );
 };
 
-const TodoContainer = styled.View`
+const TodoContainer = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -20,6 +23,11 @@ const TodoContainer = styled.View`
   border-width: 1px;
   border-style: solid;
   border-color: #cccccc;
+  border-radius: 10px;
 `;
 
-export default TodoItem;
+const mapDispatchToProps = {
+  deleteTodo: deleteTodoFromActive,
+};
+
+export default connect(null, mapDispatchToProps)(TodoItem);

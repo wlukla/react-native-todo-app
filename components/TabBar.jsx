@@ -39,7 +39,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
             onPress={onPress}
             onLongPress={onLongPress}
           >
-            <Text style={{ color: isFocused ? 'white' : '#222' }}>{label}</Text>
+            <NavButtonText isFocused={isFocused}>{label}</NavButtonText>
           </NavButton>
         );
       })}
@@ -56,10 +56,16 @@ const NavContainer = styled.View`
 `;
 
 const NavButton = styled.TouchableOpacity`
-  height: 50px;
+  height: 70px;
   width: 50%;
   justify-content: center;
   align-items: center;
+`;
+
+const NavButtonText = styled.Text`
+  color: ${({ isFocused }) => (isFocused ? 'white' : 'black')};
+  font-size: 16px;
+  font-weight: bold;
 `;
 
 export default TabBar;

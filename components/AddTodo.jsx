@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Button } from 'react-native';
 import styled from 'styled-components/native';
+
+import { addTodoToActive } from '../redux/actions/activeTodosActions';
 
 const AddTodo = ({ addTodo }) => {
   const [title, setTitle] = useState('');
@@ -14,7 +17,12 @@ const AddTodo = ({ addTodo }) => {
 
   return (
     <Container>
-      <Input onChangeText={setTitle} value={title} />
+      <Input
+        onChangeText={setTitle}
+        value={title}
+        onEndEditing={handlePress.bind(null, title)}
+        placeholder="Add your task..."
+      />
       <Button title="+" onPress={handlePress.bind(null, title)} />
     </Container>
   );
@@ -34,4 +42,8 @@ const Input = styled.TextInput`
   border-bottom-width: 2px;
 `;
 
-export default AddTodo;
+const mapDispatchToProps = {
+  addTodo: addTodoToActive,
+};
+
+export default connect(null, mapDispatchToProps)(AddTodo);
