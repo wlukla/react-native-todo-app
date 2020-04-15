@@ -10,7 +10,7 @@ const ArchiveScreen = ({ todos }) => {
     <Container>
       <Header />
       <Main>
-        <TodoList todos={todos} />
+        <TodoList todos={todos} isActive />
       </Main>
     </Container>
   );

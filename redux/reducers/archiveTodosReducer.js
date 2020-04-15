@@ -11,7 +11,7 @@ const archiveTodosReducer = (state = initialState, action) => {
         ...state,
         todosList: [action.payload, ...state.todosList],
       };
-    case 'REMOVE_TODO_FROM_ACTIVE':
+    case 'REMOVE_TODO_FROM_ARCHIVE':
       return {
         ...state,
         todosList: state.todosList.filter(

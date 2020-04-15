@@ -3,10 +3,10 @@ import styled from 'styled-components/native';
 
 import TodoItem from '../components/TodoItem';
 
-const TodoList = ({ todos }) => (
+const TodoList = ({ todos, isActive }) => (
   <TodoListContainer
     data={todos}
-    renderItem={({ item }) => <TodoItem todo={item} />}
+    renderItem={({ item }) => <TodoItem todo={item} isActive={isActive} />}
     keyExtractor={({ id }) => id}
   />
 );

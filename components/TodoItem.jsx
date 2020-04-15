@@ -3,13 +3,22 @@ import { connect } from 'react-redux';
 import { Text, Button } from 'react-native';
 import styled from 'styled-components/native';
 
-import { deleteTodoFromActive } from '../redux/actions';
+import { deleteTodoFromActive, deleteTodoFromArchive } from '../redux/actions';
 
-const TodoItem = ({ todo, deleteTodo }) => {
+const TodoItem = ({
+  todo,
+  deleteTodoFromActive,
+  deleteTodoFromArchive,
+  isActive,
+}) => {
+  const handleDelete = () => {
+    isActive ? deleteTodoFromArchive(todo) : deleteTodoFromActive(todo);
+  };
+
   return (
     <TodoContainer activeOpacity={0.5}>
       <Text>{todo.title}</Text>
-      <Button title="-" onPress={deleteTodo.bind(null, todo)} color="red" />
+      <Button title="-" onPress={handleDelete} color="red" />
     </TodoContainer>
   );
 };
@@ -27,7 +36,8 @@ const TodoContainer = styled.TouchableOpacity`
 `;
 
 const mapDispatchToProps = {
-  deleteTodo: deleteTodoFromActive,
+  deleteTodoFromActive,
+  deleteTodoFromArchive,
 };
 
 export default connect(null, mapDispatchToProps)(TodoItem);

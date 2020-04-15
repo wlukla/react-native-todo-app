@@ -5,7 +5,6 @@ const initialState = {
 };
 
 const activeTodosReducer = (state = initialState, action) => {
-  console.log(state);
   switch (action.type) {
     case 'PUSH_TODO_TO_ACTIVE':
       return {
