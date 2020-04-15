@@ -1,14 +1,17 @@
 import React from 'react';
-import { Text } from 'react-native';
 import styled from 'styled-components/native';
+import { connect } from 'react-redux';
 
 import Header from '../components/Header';
+import TodoList from '../components/TodoList';
 
-const ArchiveScreen = () => {
+const ArchiveScreen = ({ todos }) => {
   return (
     <Container>
       <Header />
-      <Text>THIS IS ARCHIVE</Text>
+      <Main>
+        <TodoList todos={todos} />
+      </Main>
     </Container>
   );
 };
@@ -18,4 +21,12 @@ const Container = styled.View`
   background-color: #fafafa;
 `;
 
-export default ArchiveScreen;
+const Main = styled.View`
+  padding: 10px;
+`;
+
+const mapStateToProps = (state) => ({
+  todos: state.archiveTodos.todosList,
+});
+
+export default connect(mapStateToProps)(ArchiveScreen);

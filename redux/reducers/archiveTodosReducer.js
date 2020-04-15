@@ -9,7 +9,7 @@ const archiveTodosReducer = (state = initialState, action) => {
     case 'PUSH_TODO_TO_ARCHIVE':
       return {
         ...state,
-        todosList: [new Todo(action.payload), ...state.todosList],
+        todosList: [action.payload, ...state.todosList],
       };
     case 'REMOVE_TODO_FROM_ACTIVE':
       return {

@@ -1,19 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { FlatList } from 'react-native';
+import styled from 'styled-components/native';
 
 import TodoItem from '../components/TodoItem';
 
 const TodoList = ({ todos }) => (
-  <FlatList
+  <TodoListContainer
     data={todos}
     renderItem={({ item }) => <TodoItem todo={item} />}
     keyExtractor={({ id }) => id}
   />
 );
 
-const mapStateToProps = (state) => ({
-  todos: state.activeTodos.todosList,
-});
+const TodoListContainer = styled.FlatList`
+  margin-top: 10px;
+`;
 
-export default connect(mapStateToProps)(TodoList);
+export default TodoList;
