@@ -27,6 +27,7 @@ const Container = styled.View`
 `;
 
 const Input = styled.TextInput`
+  font-size: 18px;
   width: 70%;
   border-color: #5c9cf5;
   border-style: solid;

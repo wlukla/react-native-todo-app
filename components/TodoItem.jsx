@@ -4,18 +4,9 @@ import styled from 'styled-components/native';
 
 const TodoItem = ({ todo, handleLongPress, onDelete }) => {
   return (
-    <TodoContainer
-      style={styles.container}
-      activeOpacity={0.5}
-      onLongPress={handleLongPress}
-    >
+    <TodoContainer activeOpacity={0.5} onLongPress={handleLongPress}>
       <Text>{todo.title}</Text>
-      <Button
-        style={styles.button}
-        title="-"
-        onPress={onDelete.bind(null, todo.id)}
-        color="red"
-      />
+      <Button title="-" onPress={onDelete.bind(null, todo.id)} color="red" />
     </TodoContainer>
   );
 };
