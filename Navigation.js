@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator();
 
 const TodosTabNavigation = () => (
   <Stack.Navigator tabBar={(props) => <TabBar {...props} />}>
-    <Stack.Screen name="Home" component={TodosScreen} options={headerStyles} />
+    <Stack.Screen name="Todos" component={TodosScreen} options={headerStyles} />
     <Stack.Screen name="Todo" component={TodoScreen} />
   </Stack.Navigator>
 );

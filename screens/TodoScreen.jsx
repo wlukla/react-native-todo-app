@@ -29,6 +29,7 @@ const TodoScreen = ({ route, updateTodoInActive, updateTodoInArchive }) => {
           value={title}
           onChangeText={setTitle}
           onEndEditing={handleTitleChange.bind(null, title)}
+          onBlur={handleTitleChange.bind(null, title)}
         />
         <TodoDescription
           value={description}
@@ -36,6 +37,7 @@ const TodoScreen = ({ route, updateTodoInActive, updateTodoInArchive }) => {
           numberOfLines={4}
           onChangeText={setDescription}
           onEndEditing={handleDescriptionChange.bind(null, description)}
+          onBlur={handleDescriptionChange.bind(null, description)}
         />
       </Main>
     </Container>
