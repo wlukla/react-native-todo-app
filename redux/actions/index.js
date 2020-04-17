@@ -2,11 +2,13 @@ import {
   removeTodoFromActive,
   pushTodoToActive,
   putTodoInActive,
+  putActiveTodoList,
 } from './activeTodosActions';
 import {
   removeTodoFromArchive,
   pushTodoToArchive,
   putTodoInArchive,
+  putArchiveTodoList,
 } from './archiveTodosActions';
 
 export const deleteTodoFromActive = (todo) => (dispatch) => {
@@ -28,4 +30,12 @@ export const updateTodoInActive = (todo) => (dispatch) => {
 
 export const updateTodoInArchive = (todo) => (dispatch) => {
   dispatch(putTodoInArchive(todo));
+};
+
+export const updateActiveTodoList = (todo) => (dispatch) => {
+  dispatch(putActiveTodoList(todo));
+};
+
+export const updateArchiveTodoList = (todo) => (dispatch) => {
+  dispatch(putArchiveTodoList(todo));
 };

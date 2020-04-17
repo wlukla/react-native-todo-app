@@ -11,6 +11,7 @@ const TodoItem = ({
   deleteTodoFromArchive,
   isActive,
   navigation,
+  drag,
 }) => {
   const handleDelete = () => {
     isActive ? deleteTodoFromActive(todo) : deleteTodoFromArchive(todo);
@@ -20,6 +21,7 @@ const TodoItem = ({
     <TodoContainer
       activeOpacity={0.5}
       onPress={() => navigation.navigate('Todo', { todo, isActive })}
+      onLongPress={drag}
     >
       <Text>{todo.title}</Text>
       <Button title="-" onPress={handleDelete} color="red" />
@@ -28,6 +30,7 @@ const TodoItem = ({
 };
 
 const TodoContainer = styled.TouchableOpacity`
+  height: 50px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;

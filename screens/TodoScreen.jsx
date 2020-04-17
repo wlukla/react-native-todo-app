@@ -58,7 +58,7 @@ const TodoDescription = styled.TextInput`
   font-size: 16px;
 `;
 
-const Container = styled.View`
+const Container = styled.ScrollView`
   flex: 1;
   background-color: #fafafa;
 `;
